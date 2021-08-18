@@ -1,8 +1,9 @@
 'use strict';
 
 const word = '[a-fA-F\\d:]';
+const punctuation = '[\,.\?\!]';
 const b = options => options && options.includeBoundaries ?
-	`(?:(?<=\\s|^)(?=${word})|(?<=${word})(?=\\s|$))` :
+	`(?:(?<=\\s|${punctuation}|^)(?=${word})|(?<=${word})(?=\\s|${punctuation}|$))` :
 	'';
 
 const v4 = '(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)(?:\\.(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]\\d|\\d)){3}';
